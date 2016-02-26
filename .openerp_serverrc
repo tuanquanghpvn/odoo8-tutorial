@@ -1,0 +1,5 @@
+[options]
+admin_passwd = DQMtvUcOa4zC
+log_handler = :INFO,openerp.addons.smile_upgrade:ERROR,openerp.addons.vatgia_connector:DEBUG
+#dbfilter = ^trung-hq.*
+addons_path = addon_repos,odoo/addons
