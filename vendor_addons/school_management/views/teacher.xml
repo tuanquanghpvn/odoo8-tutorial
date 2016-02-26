@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_teacher_form">
+            <field name="name">teacher.form</field>
+            <field name="model">teacher</field>
+            <field name="arch" type="xml">
+                <form string="Student">
+                    <sheet>
+                        <group>
+                            <field name="full_name" />
+                            <field name="home_town" />
+                            <field name="date_of_birth" />
+                            <field name="gender" />
+                            <field name="phone_number" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_teacher_tree">
+            <field name="name">teacher.tree</field>
+            <field name="model">teacher</field>
+            <field name="arch" type="xml">
+                <tree string="Student">
+                    <field name="full_name" />
+                    <field name="home_town" />
+                    <field name="date_of_birth" />
+                    <field name="gender" />
+                    <field name="phone_number" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_teacher_management">
+            <field name="name">Giáo viên</field>
+            <field name="res_model">teacher</field>
+            <field name="view_type">form</field>
+            <field name="view_model">list, form</field>
+            <field name="view_id" ref="view_teacher_tree" />
+        </record>
+
+        <menuitem id="menu_teacher_management" name="Quản lý giáo viên" parent="menu_school_management" />
+        <menuitem id="menu_teacher" name="Giáo viên" parent="menu_teacher_management" action="action_teacher_management" />
+    </data>
+</openerp>

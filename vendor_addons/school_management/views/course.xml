@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_course_form">
+            <field name="name">course.form</field>
+            <field name="model">course</field>
+            <field name="arch" type="xml">
+                <form string="Khoá học">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="description" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_course_tree">
+            <field name="name">course.tree</field>
+            <field name="model">course</field>
+            <field name="arch" type="xml">
+                <tree string="Khoá học">
+                    <field name="name" />
+                    <field name="description" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_course_management">
+            <field name="name">Khoá học</field>
+            <field name="res_model">course</field>
+            <field name="view_type">form</field>
+            <field name="view_model">list, form</field>
+            <field name="view_id" ref="view_course_tree" />
+        </record>
+
+        <menuitem id="menu_course_management" name="Quản lý khoá học" parent="menu_school_management" />
+        <menuitem id="menu_course" name="Khoá học" parent="menu_course_management" action="action_course_management" />
+    </data>
+</openerp>

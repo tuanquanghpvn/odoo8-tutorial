@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_student_form">
+            <field name="name">student.form</field>
+            <field name="model">student</field>
+            <field name="arch" type="xml">
+                <form string="Student">
+                    <sheet>
+                        <group>
+                            <field name="subject_id" />
+                            <field name="full_name" />
+                            <field name="home_town" />
+                            <field name="date_of_birth" />
+                            <field name="gender" />
+                            <field name="phone_number" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_student_tree">
+            <field name="name">student.tree</field>
+            <field name="model">student</field>
+            <field name="arch" type="xml">
+                <tree string="Student">
+                    <field name="subject_id" />
+                    <field name="full_name" />
+                    <field name="home_town" />
+                    <field name="date_of_birth" />
+                    <field name="gender" />
+                    <field name="phone_number" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_student_management">
+            <field name="name">Sinh viên</field>
+            <field name="res_model">student</field>
+            <field name="view_type">form</field>
+            <field name="view_model">list, form</field>
+            <field name="view_id" ref="view_student_tree" />
+        </record>
+
+        <menuitem id="menu_school_management" name="Quản lý trường học" />
+        <menuitem id="menu_student_management" name="Quản lý sinh viên" parent="menu_school_management" />
+        <menuitem id="menu_student" name="Sinh viên" parent="menu_student_management" action="action_student_management" />
+    </data>
+</openerp>
